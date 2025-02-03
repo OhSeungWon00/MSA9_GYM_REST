@@ -1,8 +1,8 @@
 
 # 🏋️ **FIT NEXUS (REACT + REST API 전환 프로젝트)**
 
-## [FIT NEXUS(Spring Boot + MyBatis 기반 프로젝트 바로가기](https://github.com/LimeYun/MSA9_GYM)
 <h6>자세한 설계 및 담당기능은 해당 링크에 작성해 두었습니다.</h6>
+## [FIT NEXUS(Spring Boot + MyBatis 기반 프로젝트 바로가기](https://github.com/LimeYun/MSA9_GYM)
 
 
 --- 
@@ -403,7 +403,19 @@
 # :gear: 3. **학습포인트와 보완점**
 
 
-1. 왜 리액트를 사용하는가?
+1. MVC ➡ REST + React
+
+  ✔ 이전 방식 (MVC)
+
+    컨트롤러에서 Model을 이용하여 데이터 주입
+    백엔드와 프론트엔드가 강하게 결합됨
+   
+  ✔ 변경 후 (REST API)
+    
+    컨트롤러가 JSON 형식의 데이터만 반환
+    React와 백엔드를 완전히 분리하여 독립적인 개발 가능
+    API 문서(Swagger) 활용 가능 → 협업 용이 
+   
    
 
 
