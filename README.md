@@ -2,9 +2,10 @@
 # 🏋️ **FIT NEXUS (REACT + REST API 전환 프로젝트)**
 
 <h6>자세한 설계 및 담당기능은 해당 링크에 작성해 두었습니다.</h6>
---- 
+
 ## [FIT NEXUS(Spring Boot + MyBatis 기반 프로젝트 바로가기](https://github.com/LimeYun/MSA9_GYM)
 
+--- 
 <p>기존 MVC 패턴의 스프링부트 프로젝트에 REACT + REST API 설계 전환 작업한 프로젝트입니다.</p>
 
 ![image](https://github.com/user-attachments/assets/96702d24-8757-4c48-81d3-583a5e83b7cc)
