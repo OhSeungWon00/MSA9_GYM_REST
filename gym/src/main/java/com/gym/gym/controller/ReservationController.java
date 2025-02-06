@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.gym.gym.domain.CustomUser;
 import com.gym.gym.domain.Option;
@@ -37,6 +36,10 @@ import lombok.extern.slf4j.Slf4j;
 @CrossOrigin("*")
 @RestController
 public class ReservationController {
+
+    // TODO : 컨트롤러 로직 -> 서비스 계층 이전
+    //        예외처리 개선
+    //        Mapper.xml 간소화
 
     @Autowired
     private ReservationService reservationService;
@@ -128,19 +131,19 @@ public class ReservationController {
                 try {
                     log.info("경로 유저 번호 : " + no);
                     
-                    List<Reservation> reservationCount = reservationService.userByList(no, page);
-                    long disabledCount = reservationService.disabledCount(no);
+                    // List<Reservation> reservationCount = reservationService.userByList(no, page);
                     
-                    log.info("디스에이블 카운트 : " + disabledCount);
+                    // log.info("디스에이블 카운트 : " + disabledCount);
                     
                     List<Reservation> reservationList = reservationService.userByList(no, page);
+                    long disabledCount = reservationService.disabledCount(no);
                     log.info("예약 데이터 empty? : " + reservationList);
 
             Map<String, Object> response = new HashMap<String, Object>();
             response.put("reservationList", reservationList);
             response.put("page", page);
-            if (!reservationCount.isEmpty()) {
-                Reservation lastReservation = reservationCount.get(reservationCount.size() - 1);
+            if (!reservationList.isEmpty()) {
+                Reservation lastReservation = reservationList.get(reservationList.size() - 1);
                 int ptCount = lastReservation.getPtCount();
                 ptCount -= disabledCount;
                 
