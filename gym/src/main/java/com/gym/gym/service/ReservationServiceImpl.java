@@ -19,13 +19,6 @@ public class ReservationServiceImpl implements ReservationService {
     @Autowired
     private ReservationMapper reservationMapper;
 
-    // 예약 등록
-    @Override
-    public int insert(Reservation reservation) throws Exception {
-        int result = reservationMapper.insert(reservation);
-        return result;
-    }
-
     // 예약 목록
     @Override
     public List<Reservation> list(Option option, Page page) throws Exception {
@@ -34,7 +27,15 @@ public class ReservationServiceImpl implements ReservationService {
 
         // reservationMapper.ptComplete();
         List<Reservation> reservationList = reservationMapper.list(option, page);
+        
         return reservationList;
+    }
+
+    // 예약 등록
+    @Override
+    public int insert(Reservation reservation) throws Exception {
+        int result = reservationMapper.insert(reservation);
+        return result;
     }
     
     // 예약 조회
