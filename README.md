@@ -19,6 +19,7 @@
 ### 3. 요구사항 및 기능 정의서
 ### 4. 프로젝트 ERD 및 화면 설계
 ### 5. 학습포인트와 보완점
+### 6. 유지보수 (진행중)
 
 
 
@@ -598,3 +599,20 @@
 
 
 --- 
+
+
+# :gear: 6. **유지보수 (진행중)**
+
+- 컨트롤러 로직 → 서비스 계층으로 이전으로 MVC 패턴 고도화
+  ![updated_code_refactoring_large](https://github.com/user-attachments/assets/2ccd6d97-5652-4205-ab68-11a26a342366)
+
+
+---
+
+
+- 중복 로직 메서드화
+  ![image](https://github.com/user-attachments/assets/166d2e41-850f-47e8-991d-6171a9c03168)
+
+
+
+ 
