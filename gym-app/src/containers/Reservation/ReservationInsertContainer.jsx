@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom'
 const ReservationInsertContainer = () => {
 
   const [trainerProfile, setTrainerProfile] = useState([])
-  const [reservationByTrainer, setReservationByTrainer] = useState([])
+  const [reservationListByTrainer, setReservationListByTrainer] = useState([])
   const [ptCount, setPtCount] = useState(0)
 
   const {no} = useParams()
@@ -19,8 +19,8 @@ const ReservationInsertContainer = () => {
     const data = await response.data
 
     setTrainerProfile(data.trainerProfile)
-    setReservationByTrainer(data.reservationByTrainer)
-    setPtCount(data.ptCount)
+    setReservationListByTrainer(data.reservationListByTrainer)
+    setPtCount(data.myReservation.ptCount)
 
     console.dir(data);
     
@@ -32,7 +32,7 @@ const ReservationInsertContainer = () => {
 
   return (
     <>
-      <ReservationInsert trainerProfile={trainerProfile} reservationByTrainer={reservationByTrainer} no={no} ptCount={ptCount}/>
+      <ReservationInsert trainerProfile={trainerProfile} reservationListByTrainer={reservationListByTrainer} no={no} ptCount={ptCount}/>
     </>
   )
 }

@@ -10,7 +10,7 @@ import './Reservation.css';
 import { useNavigate } from 'react-router-dom';
 import { LoginContext } from '../../contexts/LoginContextProvider';
 
-const ReservationInsert = ({ trainerProfile, reservationByTrainer, no, ptCount }) => {
+const ReservationInsert = ({ trainerProfile, reservationListByTrainer, no, ptCount }) => {
 
   
   
@@ -47,7 +47,7 @@ const ReservationInsert = ({ trainerProfile, reservationByTrainer, no, ptCount }
     const buttons = [];
     for (let hour = 10; hour <= 21; hour++) {
       const selectedDateTime = new Date(`${date}T${hour}:00`);
-      const isReserved = reservationByTrainer.some((reservation) => {
+      const isReserved = reservationListByTrainer.some((reservation) => {
         const reservationDate = new Date(reservation.rvDate);
         return reservationDate.getTime() === selectedDateTime.getTime();
       });
