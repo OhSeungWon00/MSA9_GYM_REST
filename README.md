@@ -611,7 +611,8 @@
 
 
 - 중복 로직 메서드화
-  ![image](https://github.com/user-attachments/assets/166d2e41-850f-47e8-991d-6171a9c03168)
+  ![2 9_코드리팩토링_2](https://github.com/user-attachments/assets/bb59c222-cdc9-4e28-90b2-23c9e48ee506)
+
 
 
 
