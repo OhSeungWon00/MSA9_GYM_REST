@@ -37,16 +37,19 @@ const ReservationListContainer = () => {
 
         response = await reservation.userByList(userInfo.no, pageNumber, currentOption.rows);
 
+        console.log("페이지 번호 요청:", pageNumber);
         const data = response.data
         console.dir("예약 데이터 : " + data.reservationList)
-        console.dir("페이지 데이터 : " + data.page)
+        console.dir("ptCount : " + data.ptCount)
+        console.dir("disabledCount : " + data.disabledCount)
+        console.dir("페이지 데이터 : " + data.page.end)
         setReservations(data.reservationList)
         setPtCount(data.ptCount)
         setDisabledCount(data.disabledCount)
         setPage(data.page)
       } else {
         response = await fetch(
-          `http://192.168.30.63:8080/admin/reservation/list?page=${pageNumber}&rows=${currentOption.rows}&keyword=${currentOption.keyword}&orderCode=${currentOption.orderCode}&code=${currentOption.code}`
+          `http://localhost:8080/admin/reservation/list?page=${pageNumber}&rows=${currentOption.rows}&keyword=${currentOption.keyword}&orderCode=${currentOption.orderCode}&code=${currentOption.code}`
         );
         if (response.ok) {
           const { reservationList, page: newPage } = await response.json();
