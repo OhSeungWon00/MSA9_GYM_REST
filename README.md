@@ -330,9 +330,29 @@
   ![관리자 화면 11](https://drive.google.com/uc?id=1IKwCA9CU7cHNaaULMDOWbQ2KHbLP3AiX)
 </details>
 
-
-
 ---
+
+# :gear: **학습포인트와 보완점**
+
+
+1. MVC ➡ REST + React
+   
+  ✅ 이전 방식 (MVC)
+  - 컨트롤러에서 Model 을 이용하여 데이터 주입
+  - 백엔드와 프론트엔드가 강하게 결합됨
+
+  ✅ 변경 후 (REST API)
+  - 컨트롤러가 JSON 형식의 데이터만 반환
+  - React 와 백엔드를 완전히 분리하여 독립적인 개발 가능
+  - API 문서(Swagger) 활용 가능 ➡ 협업 용이
+   
+2. 재사용성 및 상태 관리
+3. 
+- ReservationListModal과 같은 모달, 헤더 등 각각의 섹션들을 컴포넌트로 구성해 독립적으로 관리 가능해짐
+  여러 곳에서 일관된 UI/UX 로 재사용하여 사용 가능
+
+- state 선언을 통해 상태 값 변경여부에 따른 자동 UI 갱신으로, 코드의 가독성 업그레이드 및 DOM 조작 최소화를 이룸
+
 
 <h2>🌟<strong>프로젝트 소감</strong></h2>
 
