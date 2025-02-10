@@ -1,7 +1,7 @@
 
 # 🏋️ **FIT NEXUS (REACT + REST API 전환 프로젝트)**
 
-<h3>기존 MVC 패턴의 스프링부트 프로젝트에 REACT + REST API 설계 전환 작업한 프로젝트입니다.</h3>
+<h3>기존 MVC 패턴의 스프링부트 프로젝트에 REACT + REST API 전환 작업한 프로젝트입니다.</h3>
 
 --- 
 
