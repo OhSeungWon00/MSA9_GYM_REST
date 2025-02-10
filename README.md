@@ -68,14 +68,8 @@
 
 - 이번 프로젝트에서는 인증과 권한 관리를 사용자가 로그인을 하면 JWT 토큰을 사용자에게 발급하여 사용자는 JWT토큰을 쿠키에 저장하고 매번 요청에 JWT토큰을 포함해서 요청합니다. 그러면 서버에서는 필터를 통해서 JWT토큰이 있는지 확인하여 요청하는 데이터를 응답해줍니다.
 
-<summary><h2>🛠️ <strong>개발 환경</strong></h2></summary>
-  
-  
-  ![개발 환경 이미지](https://chestnut-blinker-ca6.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F8cd794c0-c633-4008-b289-af6deeea8c4d%2Fa15b7295-4884-4d79-a760-47e8a23443c3%2Fimage.png?table=block&id=169902bd-b12f-8054-9a60-fc844af24385&spaceId=8cd794c0-c633-4008-b289-af6deeea8c4d&width=1090&userId=&cache=v2)
-
-
-
 ---
+
 
 
 <summary><h2>📑 <strong>요구사항 정의서</strong></h2></summary>
