@@ -3,8 +3,6 @@
 
 <h3>기존 MVC 패턴의 스프링부트 프로젝트에 REACT + REST API 설계 전환 작업한 프로젝트입니다.</h3>
 
-## [FIT NEXUS (Spring Boot MVC패턴 프로젝트) 바로가기](https://github.com/LimeYun/MSA9_GYM)
-
 --- 
 
 ![image](https://github.com/user-attachments/assets/96702d24-8757-4c48-81d3-583a5e83b7cc)
