@@ -1,30 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import './Home.css'; // CSS 파일 임포트
+import './Home.css'; 
 import { Link } from 'react-router-dom';
-import Header from '../components/header/header'; // Header 임포트
+import Header from '../components/header/header'; 
 import Footer from '../components/Footer/footer';
+import { getUserCount } from '../apis/home'; 
 
 const Home = () => {
   const [userCount, setUserCount] = useState(0);
 
   useEffect(() => {
     const fetchUserCount = async () => {
-      try {
-        const response = await fetch('http://localhost:8080/admin/attendance/userCount'); // 백엔드 API URL
-        if (response.ok) {
-          const data = await response.json(); // JSON 응답을 파싱
-          setUserCount(data.userCount); // userCount를 상태로 저장
-        } else {
-          console.error('Failed to fetch user count');
-        }
-      } catch (error) {
-        console.error('Error:', error);
-      }
+      const count = await getUserCount();  
+      console.log('User Count:', count);  
+      setUserCount(count);
     };
 
     fetchUserCount();
 
-    // 주기적으로 사용자 수를 갱신 (예: 10초마다)
+ 
     const interval = setInterval(fetchUserCount, 10000);
     return () => clearInterval(interval);
   }, []);
@@ -32,9 +25,9 @@ const Home = () => {
   const scrollFunction = () => {
     const topBtn = document.getElementById("topBtn");
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      // topBtn.style.display = "block";
+     
     } else {
-      // topBtn.style.display = "none";
+
     }
   };
 
@@ -50,31 +43,31 @@ const Home = () => {
 
   return (
     <div>
-      {/* Header 컴포넌트 추가 */}
+    
       <Header />
 
       <div className='osw'> 
         <div>
-          {/* ranking 페이지로 가는 링크 */}
+
           <Link to="/ranking">
             <button>랭킹 페이지로 이동</button>
           </Link>
 
-          {/* 헬스장 입장 가는 링크 */}
+
           <Link to="/generate-qr-code">
             <button>헬스장 입장</button>
           </Link>
 
-          {/* 출석내역 가는 링크 */}
+  
           <Link to="/admin/attendanceList">
             <button>출석 내역</button>
           </Link>
 
-          {/* 로그인 가는 링크 */}
+      
           <Link to="/login">
             <button>로그인</button>
           </Link>
-
+            {/* 첫 번째 섹션 */}
           <div className="osw" style={{ height: '100vh', width: '100%' }}>
             <img src="/images/메인.png" alt="메인 이미지" className="main-image zoom-animation" />
             <div className="icon">
@@ -82,7 +75,7 @@ const Home = () => {
             </div>
             <div className="userCount">실시간 헬스장 이용자 수</div>
             <div className="userCount2">
-              <span>{userCount}명 /</span>
+              <span>{Number(userCount)}명 /</span>
               <span className={userCount < 10 ? 'status-icon low' : userCount < 30 ? 'status-icon normal' : 'status-icon high'}>
                 {userCount < 10 ? '여유' : userCount < 30 ? '보통' : '포화'}
               </span>
@@ -109,7 +102,6 @@ const Home = () => {
                 allowFullScreen
                 className="youtube"
                 style={{width : '1300px', height: '800px'}}
-                
               ></iframe>
             </div>
           </div>

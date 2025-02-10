@@ -4,6 +4,7 @@ import './AttendanceList.css';
 import Sidebar from '../Header/adminSidebar';
 import { LoginContext } from '../../../contexts/LoginContextProvider';
 import * as Swal from '../../../apis/alert';
+import { fetchAttendanceData } from '../../../apis/attendance'
 
 const AttendanceTable = () => {
   const [attendanceList, setAttendanceList] = useState([]);
@@ -12,11 +13,10 @@ const AttendanceTable = () => {
   const { isLogin, userInfo, roles, isLoading } = useContext(LoginContext);
   const navigate = useNavigate();
 
-
   // 로딩 상태 처리
   const [isTableLoading, setIsTableLoading] = useState(true);
 
-  console.dir("권한 뭥미" + roles)
+  console.dir("권한 뭥미" + roles);
   console.log("roles:", JSON.stringify(roles, null, 2));  // roles 객체 전체 출력
 
   // 권한 체크 및 로그인 상태 확인
@@ -24,21 +24,21 @@ const AttendanceTable = () => {
     if (isLoading) {
       return; // 로딩 중이면 아무것도 하지 않음
     }
-  
+
     if (!isLogin) {
       Swal.alert('로그인을 시도해주세요', '로그인 화면으로 이동합니다', 'warning', () => {
         navigate('/login');
       });
       return;
     }
-  
+
     if (!userInfo) {
       Swal.alert('잘못된 접근입니다.', '메인 화면으로 이동합니다.', 'warning', () => {
         navigate('/');
       });
       return;
     }
-  
+
     if (roles.isUser) {
       Swal.alert('권한이 없습니다.', '메인 화면으로 이동합니다.', 'warning', () => {
         navigate('/');
@@ -47,19 +47,14 @@ const AttendanceTable = () => {
       fetchAttendanceList(); // 관리자가 아닌 사용자는 접근할 수 없도록
     }
   }, [isLoading, isLogin, userInfo, roles, navigate]);
-  
-
-
-
-
-
 
   // 출석 리스트 가져오기
   const fetchAttendanceList = async (pageNumber = 1) => {
+    setIsTableLoading(true); // 데이터 로딩 시작
     try {
-      const response = await fetch(`http://localhost:8080/admin/attendance/list?page=${pageNumber}&keyword=${option.keyword}`);
-      if (response.ok) {
-        const { attendanceList, option: newOption, page: newPage } = await response.json();
+      const response = await fetchAttendanceData(pageNumber, option.keyword);
+      if (response) {
+        const { attendanceList, option: newOption, page: newPage } = response;
         setAttendanceList(attendanceList);
         setOption(newOption);
         setPage(newPage); // 새로운 페이지 정보로 상태 업데이트
