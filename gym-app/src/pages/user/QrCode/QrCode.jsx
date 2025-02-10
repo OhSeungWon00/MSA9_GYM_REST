@@ -3,6 +3,7 @@ import QRCode from 'qrcode';
 import { LoginContext } from '../../../contexts/LoginContextProvider';
 import { useNavigate } from 'react-router-dom'; 
 import Swal from 'sweetalert2'; 
+import { getTicketBuyList, getStartedTicket } from '../../../apis/ticketList'; 
 import './QrCode.css';
 
 const QrCode = () => {
@@ -15,14 +16,11 @@ const QrCode = () => {
   const [startedTicket, setStartedTicket] = useState(null); // 정상 상태인 가장 오래된 티켓 상태 추가
   const navigate = useNavigate(); // navigate 훅 사용
 
-  // 사용자 번호를 userInfo에서 가져오기
+
   const userNo = userInfo?.no;
 
   // 페이지 진입 시 티켓 보유 여부 확인
   useEffect(() => {
-    console.log("전체 userInfo 구조:", userInfo); // userInfo 전체 구조 확인
-    console.log("ticket 값:", userInfo?.ticket); // ticket이 존재하는지 확인
-
     if (!isLogin || !userInfo) {
       // 로그인되지 않았거나 userInfo가 없으면 티켓 구매 화면으로 리다이렉트
       navigate('/ticket/ChoiceTicket'); // 티켓 구매 화면 경로로 이동
@@ -31,17 +29,14 @@ const QrCode = () => {
 
     // 티켓 구매 내역을 API 호출로 가져오기
     if (userNo) {
-      fetch(`http://localhost:8080/buyList/users/${userNo}`)
-        .then(response => response.json())
+      getTicketBuyList(userNo)
         .then(data => {
           console.log('구매 리스트 데이터:', data);
 
-          setTicketBuyList(data.ticketBuyList || []); // 기본값 빈 배열로 처리
+          setTicketBuyList(data); 
 
           // 정상 상태인 가장 오래된 티켓 필터링
-          const startedTicket = data.ticketBuyList?.length > 0 ?
-            data.ticketBuyList.filter(b => b.status === '정상')
-              .sort((a, b) => new Date(a.startDate) - new Date(b.startDate))[0] : null;
+          const startedTicket = getStartedTicket(data);
 
           setStartedTicket(startedTicket); // 가장 오래된 정상 티켓 저장
 
