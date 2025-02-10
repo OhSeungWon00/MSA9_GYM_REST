@@ -71,16 +71,16 @@
 ---
 
 
-
+<details>
 <summary><h2>📑 <strong>요구사항 정의서</strong></h2></summary>
   
    ![image](https://github.com/user-attachments/assets/6628cdef-0e84-469a-9f1a-c7409b145b70)
-
+</details>
 
 
 ---
 
-
+<details>
 <summary><h2>🗒️ <strong>기능 정의서</strong></h2></summary>
   
   - 사용자(유저) 기능 정의서
@@ -89,15 +89,15 @@
   - 관리자 기능 정의서
 
     ![image](https://github.com/user-attachments/assets/6e0eef6f-38a4-46fc-9309-9233e7c01a9a)
-
+</details>
 
 ---
 
-
+<details>
 <summary><h2>🗂️ <strong>ERD</strong></h2></summary>
   
   ![ERD 이미지](https://chestnut-blinker-ca6.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F8cd794c0-c633-4008-b289-af6deeea8c4d%2F2317d53d-12bb-40e1-bf7e-43a3f29dda8a%2Fimage.png?table=block&id=16b902bd-b12f-8032-8568-e03391399423&spaceId=8cd794c0-c633-4008-b289-af6deeea8c4d&width=1920&userId=&cache=v2)
-
+</details>
 
 
 ---
