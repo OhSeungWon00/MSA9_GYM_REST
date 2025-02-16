@@ -13,16 +13,16 @@ const AttendanceTable = () => {
   const { isLogin, userInfo, roles, isLoading } = useContext(LoginContext);
   const navigate = useNavigate();
 
-  // 로딩 상태 처리
+  // 로딩 상태 
   const [isTableLoading, setIsTableLoading] = useState(true);
 
   console.dir("권한 뭥미" + roles);
-  console.log("roles:", JSON.stringify(roles, null, 2));  // roles 객체 전체 출력
+  console.log("roles:", JSON.stringify(roles, null, 2));  
 
-  // 권한 체크 및 로그인 상태 확인
+  // 권한 체크 
   useEffect(() => {
     if (isLoading) {
-      return; // 로딩 중이면 아무것도 하지 않음
+      return; // 로딩 중이면 .. 아무것도 안함
     }
 
     if (!isLogin) {
@@ -44,40 +44,40 @@ const AttendanceTable = () => {
         navigate('/');
       });
     } else {
-      fetchAttendanceList(); // 관리자가 아닌 사용자는 접근할 수 없도록
+      fetchAttendanceList(); 
     }
   }, [isLoading, isLogin, userInfo, roles, navigate]);
 
-  // 출석 리스트 가져오기
+  // 출석 리스트
   const fetchAttendanceList = async (pageNumber = 1) => {
-    setIsTableLoading(true); // 데이터 로딩 시작
+    setIsTableLoading(true);
     try {
       const response = await fetchAttendanceData(pageNumber, option.keyword);
       if (response) {
         const { attendanceList, option: newOption, page: newPage } = response;
         setAttendanceList(attendanceList);
         setOption(newOption);
-        setPage(newPage); // 새로운 페이지 정보로 상태 업데이트
+        setPage(newPage); 
       } else {
         console.error('출석 목록을 불러오는 데 실패했습니다.');
       }
     } catch (error) {
       console.error('출석 목록을 불러오는 중 오류 발생:', error);
     } finally {
-      setIsTableLoading(false); // 데이터 로딩 완료
+      setIsTableLoading(false); 
     }
   };
 
-  // 페이지 변경 핸들러
+  // 페이지 변경 
   const handlePageChange = (pageNumber) => {
     setPage((prevPage) => ({
       ...prevPage,
       page: pageNumber
     }));
-    fetchAttendanceList(pageNumber); // 새로운 페이지 데이터 불러오기
+    fetchAttendanceList(pageNumber); 
   };
 
-  // 로딩 중이면 아무것도 렌더링하지 않음
+ 
   if (isLoading || !isLogin || !userInfo || roles.isUser) {
     return null;
   }
@@ -97,7 +97,7 @@ const AttendanceTable = () => {
               className="search"
               onSubmit={(e) => {
                 e.preventDefault();
-                fetchAttendanceList(1); // 검색어로 출석 리스트를 다시 불러옴
+                fetchAttendanceList(1);
               }}
             >
               <input

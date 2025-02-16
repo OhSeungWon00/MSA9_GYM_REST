@@ -17,18 +17,18 @@
 .osw .osw, .osw .container1, .osw .container3, .osw .container4 {
     position: relative;
     width: 100%;
-    height: 1000px; /* 고정 높이 설정 */
+    height: 1000px; 
     overflow: visible;
     background-color: black;
 }
 
 
 .osw .osw .main-image {
-    display: block; /* 이미지 블록 요소로 설정 */
-    margin: 0 auto; /* 수평 가운데 정렬 */
-    width: 100%; /* 부모 컨테이너에 맞게 크기 설정 */
+    display: block; 
+    margin: 0 auto; 
+    width: 100%; 
     height: 100%;
-    object-fit: cover; /* 비율에 맞게 크기 조정 */
+    object-fit: cover;
     filter: brightness(50%);
     animation: zoomIn 15s infinite;
     overflow: hidden;
@@ -85,16 +85,16 @@
 }
 
 .osw .low {
-    background-color: green; /* 여유 */
+    background-color: green; 
 }
 
 .osw .normal {
-    background-color: yellow; /* 보통 */
-    color: black; /* 텍스트 색상 */
+    background-color: yellow; 
+    color: black; 
 }
 
 .osw .high {
-    background-color: red; /* 포화 */
+    background-color: red; 
 }
 
 .osw .userCount, .osw .userCount2 {
@@ -146,7 +146,7 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: linear-gradient(45deg, #6a11cb, #2575fc); /* 그라디언트 색상 */
+    background: linear-gradient(45deg, #6a11cb, #2575fc); 
     color: white;
     border: none;
     border-radius: 50%;
@@ -162,20 +162,20 @@
     z-index: 100;
 }
 
-/* 호버 효과 */
+
 .osw #topBtn:hover {
-    background: linear-gradient(45deg, #2575fc, #6a11cb); /* 반전 그라디언트 */
-    transform: scale(1.2); /* 버튼 확대 */
+    background: linear-gradient(45deg, #2575fc, #6a11cb); 
+    transform: scale(1.2); 
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
 }
 
-/* 클릭 시 */
+
 .osw #topBtn:active {
-    transform: scale(1.1); /* 클릭 시 살짝 줄어듦 */
+    transform: scale(1.1);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* 애니메이션 효과 */
+
 @keyframes pulse {
     0% {
         box-shadow: 0 0 10px rgba(106, 17, 203, 0.5);
@@ -188,13 +188,13 @@
     }
 }
 
-/* 버튼에 펄스 애니메이션 추가 */
+
 .osw #topBtn {
     animation: pulse 2s infinite;
 }
 
 html {
-    scroll-behavior: smooth; /* 페이지 내 스크롤을 부드럽게 처리 */
+    scroll-behavior: smooth;
 }
 
 .osw .map-osw {
@@ -311,7 +311,7 @@ html {
     object-fit: cover; 
 }
 
-/* 애니메이션 */
+
 @keyframes zoomIn {
     0% {
         transform: scale(1);
@@ -336,7 +336,6 @@ html {
     }
 }
 
-/* 반응형 */
 @media (max-width: 768px) {
     .osw .userCount, .osw .userCount2 {
         font-size: 6vw;

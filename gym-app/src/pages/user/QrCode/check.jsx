@@ -11,8 +11,6 @@ const Check = () => {
   const params = new URLSearchParams(location.search);
   const uuid = params.get('uuid');
   const userNo = params.get('qrcodeId');
-
-  // JWT 토큰 가져오기 (로컬 스토리지에서 가져오는 예시)
   const token = localStorage.getItem('jwt');
 
   // 출석 체크 요청을 서버로 보내는 함수
@@ -40,7 +38,7 @@ const Check = () => {
     }
   };
 
-  // 메인 페이지로 이동하는 함수
+  // 메인 페이지로 이동
   const goToMain = () => {
     navigate('/');
   };
