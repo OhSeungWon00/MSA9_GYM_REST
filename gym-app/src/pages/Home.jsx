@@ -111,7 +111,7 @@ const Home = () => {
             <div className="maptext">오시는 길</div>
             <div className="map-container">
               <iframe
-                src="https://www.google.com/maps/embed?pb=..." // 실제 URL로 교체
+                src="https://www.google.com/maps/embed?pb=..." 
                 frameBorder="0"
                 allowFullScreen
                 loading="lazy"
